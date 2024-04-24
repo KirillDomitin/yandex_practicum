@@ -1,0 +1,20 @@
+services:
+
+  entrypoint_app:
+    container_name: entrypoint_app
+    env_file: .env
+    build: entrypoint_app
+    networks:
+      - main-network
+
+  fastapi_solution:
+    ports:
+      - "${FASTAPI_PORT}:${FASTAPI_PORT}"
+
+  elasticsearch:
+    ports:
+      - "${ES_PORT}:${ES_PORT}"
+
+  postgresql:
+    ports:
+      - "${PG_PORT}:${PG_PORT}"
